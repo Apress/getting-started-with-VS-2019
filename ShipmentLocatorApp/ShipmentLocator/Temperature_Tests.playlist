@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="VisualStudioTests.ConversionHelperTests.Test_Fahrenheit_Calc" /><Add Test="VisualStudioTests.ConversionHelperTests.Test_Celsius_Calc" /></Playlist>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>elysium.crypt</name>
+    </assembly>
+    <members>
+        <member name="T:elysium.crypt.crypto">
+            <summary>
+            The Elysium Encryption Class
+            </summary>
+        </member>
+        <member name="M:elysium.crypt.crypto.EncryptData(System.String)">
+            <summary>
+            Encrypt data - This value can never be decrypted. It can only be validated by using ValidateEncryptedData(string valueToValidate, string encryptedValue).
+            It is suitable for storing user passwords and credit card information
+            </summary>
+            <param name="valueToEncrypt">The value that you want to encrypt</param>
+            <returns>The encrypted value that you need to store in a database. This includes the salt value</returns>
+        </member>
+        <member name="M:elysium.crypt.crypto.ValidateEncryptedData(System.String,System.String)">
+            <summary>
+            Validate input against the encrypted value stored in the database
+            </summary>
+            <param name="valueToValidate">The value that needs to be validated (clear text)</param>
+            <param name="encryptedValue">The encrypted value to match with (usually read from a database)</param>
+            <returns>A boolean true or false where true means that the value has been successfully validated</returns>
+        </member>
+        <member name="M:elysium.crypt.crypto.RijndaelEncrypt(System.String)">
+            <summary>
+            Encrypt any string value intended to be decrypted later on.
+            Note that you can only decrypt this value using RijndaelDecrypt().
+            Uses a random symmetric algorithm key and initialization vector to create the Symmetric Rijndael encryptor object for encryption.
+            </summary>
+            <param name="valueToEncrypt">The plain text string value to encrypt</param>
+            <returns>Encrypted string value</returns>
+        </member>
+        <member name="M:elysium.crypt.crypto.RijndaelDecrypt(System.String)">
+            <summary>
+            Decrypt any string value that was encrypted with RijndaelEncrypt()
+            </summary>
+            <param name="encryptedValue">The encrypted string value to decrypt</param>
+            <returns>Decrypted string value</returns>
+        </member>
+        <member name="M:elysium.crypt.crypto.ConvertToUnsecuredString(System.Security.SecureString)">
+            <summary>
+            Convert a SecureString to a plain String value
+            </summary>
+            <param name="securePassword">The Password stored in the SecureString</param>
+            <returns>The unsecured Password</returns>
+        </member>
+        <member name="M:elysium.crypt.crypto.ConvertToSecureString(System.String)">
+            <summary>
+            Convert a plain String value to a SecureString value
+            </summary>
+            <param name="password">The plain String password value to convert</param>
+            <returns>A SecureString password</returns>
+        </member>
+        <member name="T:elysium.crypt.validator">
+            <summary>
+            The Elysium Validation Class
+            </summary>
+        </member>
+        <member name="M:elysium.crypt.validator.IsValidEmailAddressString(System.String)">
+            <summary>
+            Validate an email address
+            </summary>
+            <param name="emailAddressToValidate">The email address to validate</param>
+            <returns>A boolean value true or false</returns>
+        </member>
+        <member name="T:elysium.crypt.ExtensionMethods">
+            <summary>
+            The Elysium Extension Methods Class
+            </summary>
+        </member>
+        <member name="M:elysium.crypt.ExtensionMethods.ToInt(System.String,System.Int32)">
+            <summary>
+            Convert a string representation of an integer to an actual integer.
+            </summary>
+            <param name="value">String Value</param>
+            <param name="defaultValueIfNotInt">This is the default value to return if the string is not a valid Integer. Defaults to Zero.</param>
+            <returns>Integer</returns>
+        </member>
+        <member name="M:elysium.crypt.ExtensionMethods.ToDate(System.String)">
+            <summary>
+            Convert a string to an actual date time. Returns DateTime.MinValue if value to convert is not a valid date
+            </summary>
+            <param name="value">String value</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:elysium.crypt.ExtensionMethods.IsNull``1(``0)">
+            <summary>
+            Check if a class is null
+            </summary>
+            <typeparam name="T">Check if a class object is null</typeparam>
+            <param name="obj">The object of type T to act on</param>
+            <returns>Boolean true or false</returns>
+        </member>
+    </members>
+</doc>

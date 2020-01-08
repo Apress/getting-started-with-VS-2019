@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "AcmeCorpShipping.sln",
+    "projects": [
+      "..\\ShipmentTracking\\ShipMethodLogic.csproj",
+      "ShipmentLocator.csproj"
+    ]
+  }
+}
